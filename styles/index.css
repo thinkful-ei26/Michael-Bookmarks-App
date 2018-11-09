@@ -1,0 +1,149 @@
+*{  
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(0, 48, 121);
+    margin:0;
+    padding:0;
+}
+
+.bookmark-banner{
+    margin: auto;
+    max-width: 800px;
+    background-color: blue;
+    height: 15%;
+    color: white;
+    text-align: center;
+    border-style: inset;
+    border-width: 3px;
+    border-color: darkblue;
+}
+
+.select-filter{
+    margin: 10px;
+    float: right;
+}
+
+.bookmark-list{
+    list-style: none;
+    padding:0;
+    
+}
+
+.js-edit-rating{
+    float: right;
+}
+.right{
+    float: right;
+}
+.bookmark-element{
+    border-style: inset;
+    border-color: grey;
+    border-width: 3px;
+    padding: 10px;
+}
+
+.bookmark-element:not(:last-child){
+    border-bottom: 0;
+}
+
+
+.addView{
+    margin:0;
+}
+
+.submitAddView{
+    margin:3px;
+}
+
+
+
+.content{
+    background-color: white;
+    margin: auto;
+    max-width: 800px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.addViewButton{
+    margin:10px;
+    background-color: rgb(0, 24, 245);
+    border: solid 2px black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.buttonStyle{
+    background-color: rgb(0, 24, 245);
+    border: solid 2px black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.bookmark-item-toggle{
+    background-color: rgb(0, 24, 245);
+    border: solid 2px black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.bookmark-item-delete{
+    background-color: rgb(0, 24, 245);
+    border: solid 2px black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.bookmark-item-edit{
+    background-color: rgb(0, 24, 245);
+    border: solid 2px black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.bookImg{
+    float: right;
+    width: 200px;
+    height: 200px;
+}
+@media only screen and (min-width: 600px) {
+    .bookImg{
+        float: right;
+        width: 200px;
+        height: 200px;
+    }
+}
+@media only screen and (max-width: 600px) {
+
+    .bookImg{
+        display: none;
+        float: right;
+        width: 200px;
+        height: 200px;
+    }
+
+} 
+
