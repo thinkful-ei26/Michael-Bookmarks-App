@@ -7,17 +7,18 @@ const api = (function () {
         method: 'POST',
         data: newItem,
         success: callback,
-        error: () => {
+        error: () => { 
             if(JSON.parse(newItem).title.length > 0){
                 console.log('good title');
             }else{
-                alert('Title must be vaild')
+                store.saveError('Title must be vaild');
             } 
             if(JSON.parse(newItem).url.length > 5 && JSON.parse(newItem).url.indexOf('http') > -1){
                 console.log('legal url');
             }else{
-                alert('url must have http(s):// at the beginning')
+                store.saveError('url must have http(s):// at the beginning');
             }
+            manager.render();
         }
      })   
     }
@@ -27,7 +28,7 @@ const api = (function () {
             contentType: 'application/json',
             method: 'DELETE', 
             success: callback,
-            error: () => alert("Error the delete method has crashed please contact a system admin.")
+            error: () => store.saveError("Error the delete method has crashed please contact a system admin.")
          })
     }
     const updateBookmark = function (itemID, newData, callback) {
@@ -38,7 +39,7 @@ const api = (function () {
             method: 'PATCH',
             data: JSON.stringify(newData),
             success: callback,
-            error: () => alert("Error the updated information was invalid")
+            error: () => store.saveError("Error the updated information was invalid")
          })
     }
     const getBookmarks = function (callback) {
@@ -47,7 +48,7 @@ const api = (function () {
             contentType: 'application/json',
             method: 'GET',
             success: callback,
-            error: () => alert("Error when retrieving bookmark list")
+            error: () => store.saveError("Error when retrieving bookmark list")
          })
     }
 

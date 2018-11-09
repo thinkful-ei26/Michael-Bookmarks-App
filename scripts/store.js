@@ -1,8 +1,19 @@
 const store = (function () {
     const bookmarks = [];
     const addView = false;
+    let lastError = " ";
+    
     const addBookmark = function (data) {
         bookmarks.push(data);
+    }
+
+    const saveError = function (error) {
+        this.lastError = error;
+        console.log(this.lastError);
+    }
+
+    const resetErrorLog = function () {
+        this.lastError = " ";
     }
 
     const setEdit = function (id) {
@@ -24,5 +35,5 @@ const store = (function () {
         bookmarks.splice(itemIndex, 1);
     }
 
-    return{bookmarks, addBookmark, addView,findAndDelete,detailBookmark,setEdit,updateBookmark}
+    return{bookmarks, addBookmark, addView,findAndDelete,detailBookmark,setEdit,updateBookmark, saveError,resetErrorLog,lastError}
 }())

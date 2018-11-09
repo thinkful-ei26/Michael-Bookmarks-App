@@ -34,6 +34,11 @@ const manager = (function () {
     })
   }
 
+  function handleError() {
+    console.log(store.lastError)
+    $('.errorSpan').html(`${store.lastError}`);
+  }
+
   function resetView(){
     $('.addView').html(`
     <form>
@@ -114,6 +119,7 @@ const manager = (function () {
       }
       api.addBookmark(temp, response => {
         store.addBookmark(response);
+        store.addView = !store.addView;
         render();
       })
     });
@@ -124,6 +130,7 @@ const manager = (function () {
       store.addView = !store.addView;
       render();
     }); 
+    render();
   }
 
   const handleEditBookmark = function () {
@@ -133,6 +140,7 @@ const manager = (function () {
       store.setEdit(id);
       render();
     })
+    render();
   }
 
   const handleSubmitEdits = function () {
@@ -144,6 +152,7 @@ const manager = (function () {
         store.setEdit(id);
         render();
       } )
+      render();
     });
     $('.bookmark-list').on('submit', '.js-edit-rating', event => { 
       event.preventDefault();
@@ -152,7 +161,8 @@ const manager = (function () {
         store.updateBookmark(id, {'desc': $('.bookmark-list').find('.bookmark-desc').val() , 'rating': $(event.currentTarget).find('.bookmark-rating').val()});
         store.setEdit(id);
         render();
-      } )
+      })
+      render();
     });
   }
 
@@ -163,6 +173,7 @@ const manager = (function () {
       store.detailBookmark(id);
       render();
     })
+    render();
 
   }
 
@@ -174,6 +185,7 @@ const manager = (function () {
         store.findAndDelete(id);
         render();
       })
+      render();
     })
   }
 
@@ -182,6 +194,7 @@ const manager = (function () {
   let bookmarks = [...store.bookmarks];
   const bookmarkListString = generateBookmarkedBooksString(bookmarks);
   $('.bookmark-list').html(bookmarkListString);
+  handleError();
   if(store.addView === true){
     generateAddView();
   }else{

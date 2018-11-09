@@ -129,6 +129,12 @@ body{
     width: 200px;
     height: 200px;
 }
+
+.errorSpan{
+    display:table;
+    margin:0 auto;
+}
+
 @media only screen and (min-width: 600px) {
     .bookImg{
         float: right;
